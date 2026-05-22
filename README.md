@@ -1,4 +1,4 @@
-# CrimeScope USA 🔍
+# CrimeScope USA
 ### Big Data Crime Analysis: FBI National Incident-Based Reporting System (NIBRS)
 
 > **ALY 6110: Big Data Analysis | Northeastern University**  
