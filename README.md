@@ -1,5 +1,4 @@
-# CrimeScope USA
-### Big Data Crime Analysis: FBI National Incident-Based Reporting System (NIBRS)
+# CrimeScope USA: FBI National Incident-Based Reporting System (NIBRS)
 
 > **ALY 6110: Big Data Analysis | Northeastern University**  
 > Group project: Neeti Shah, Sukrit Tripathi, Edison, Khue Dinh
@@ -8,7 +7,7 @@
 ## Project Description
 CrimeScope USA is an end-to-end big data pipeline and interactive Streamlit dashboard built on the FBI's **National Incident-Based Reporting System (NIBRS)** the most granular official U.S. crime dataset available. It spans **5.4M+ offense records** across **4 states and 4 years**, covering incident-level, victim-level, and offender-level data.
 
-The project covers the full data science workflow: multi-table relational joins across 16 state-year folders, exploratory analysis of crime patterns by offense type, time, location, and demographics, machine learning classification models, time-series forecasting, and a prescriptive patrol allocation engine  all surfaced through a single interactive dashboard.
+The project covers the full data science workflow: multi-table relational joins across 16 state-year folders, exploratory analysis of crime patterns by offense type, time, location, and demographics, machine learning classification models, time-series forecasting, and a prescriptive patrol allocation engine all surfaced through a single interactive dashboard.
 
 ---
 ## Data Source
@@ -29,16 +28,6 @@ Extended EDA with victim vs. offender demographic comparisons, weapon analysis, 
 ### Khue Dinh: `KHUE_DINH_BIG_DATA.ipynb`
 Victim demographic deep-dive by age, race, ethnicity, and sex across states. Time-series forecasting of monthly crime volume using Ridge regression with lag features. Prescriptive patrol allocation model using linear programming (SciPy) with efficiency vs. fairness policy comparison.
 
----
-
-## The Combined Dashboard (`big_data_group_project.py`)
-
-A **Streamlit** app that brings all four contributions into one interactive interface. Run it locally with:
-
-```bash
-streamlit run big_data_group_project.py
-```
-
 **Dashboard sections:**
 - **EDA** — crime trends by state/year, offense category breakdown, location heatmaps, crime_against trends over time
 - **Victim Analysis** — age groups, race, ethnicity, sex breakdowns; victim vs. offender race comparison
@@ -46,19 +35,6 @@ streamlit run big_data_group_project.py
 - **Models (Edison)** — arrest likelihood prediction with ROC curves
 - **Models (Neeti)** — crime_against classification pipeline with confusion matrices
 - **Models (Khue)** — monthly crime forecasting + prescriptive patrol allocation
-
-All sections respond to a **global sidebar filter** (state, year, offense category) so every chart and model updates together.
-
-## Key Technical Highlights
-
-- **Multi-table relational joins** across 11 NIBRS CSV tables per state-year folder, with careful bridge-table handling to avoid many-to-many row explosions
-- **16 state-year folders** loaded dynamically — adding new states/years requires no code changes
-- **sklearn Pipelines with ColumnTransformer** — imputation, one-hot encoding, and scaling all fitted on training data only, preventing data leakage
-- **Streamlit caching** (`@st.cache_data`) keeps the dashboard fast even on 5M+ row datasets
-- **Time-series forecasting** with lag features and rolling means using Ridge regression
-- **Prescriptive analytics** via linear programming for patrol resource allocation under two policy objectives
-
----
 
 ## Acknowledgements
 **Data:** FBI Uniform Crime Reporting Program — National Incident-Based Reporting System (NIBRS)  
